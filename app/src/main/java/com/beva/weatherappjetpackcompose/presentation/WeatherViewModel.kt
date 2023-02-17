@@ -16,7 +16,7 @@ import javax.inject.Inject
 class WeatherViewModel @Inject constructor(
     private val repository: WeatherRepository,
     private val locationTracker: LocationTracker
-) : ViewModel() {
+): ViewModel() {
 
     var state by mutableStateOf(WeatherState())
         private set
@@ -47,7 +47,7 @@ class WeatherViewModel @Inject constructor(
             } ?: kotlin.run {
                 state = state.copy(
                     isLoading = false,
-                    error = "Sorry, Couldn't retrieve your location.\nMake sure to grant permission and enable GPS."
+                    error = "Couldn't retrieve location. Make sure to grant permission and enable GPS."
                 )
             }
         }
